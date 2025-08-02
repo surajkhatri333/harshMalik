@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Malik shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://img.freepik.com/premium-vector/car-positioned-center-perfect-circle-generate-minimalist-symbol-gourmet-food-delivery-service_538213-64497.jpg">
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <img src="https://thumbs.dreamstime.com/b/auto-parts-spare-car-grey-background-d-rendering-set-many-new-items-shop-aftermarket-148313097.jpg"
+            alt="Hero Image">
+        <div class="hero-overlay">
+            <h1 class="hero-title">HARSH MOTORS</h1>
+        </div>
+    </div>
+
+    <!-- Car Parts Section -->
+    <section class="car-parts">
+        <h2>Popular Car Parts</h2>
+        <div class="car-parts-marquees" id="carPartsMarquees"></div>
+        <div class="see-more-btn">
+            <button class="show-more-btn" onclick="loadMoreParts()">See More Parts</button>
+        </div>
+    </section>
+
+
+    <!-- Brand Marquee -->
+    <section class="brands">
+        <h2>Top Car Brands</h2>
+        <div class="marquee" id="brandMarquee"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Questions? Contact us at: <a href="mailto:example@email.com">example@email.com</a></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="carParts.js"></script>
+    <script src="brand.js"></script>
+    <script type="module">
+        // Render Car Parts
+        import carParts from './carParts.js';
+        import brands from './brand.js';
+        const partsContainer = document.getElementById('carPartsMarquees');
+
+        function createPartCard(part) {
+            const card = document.createElement('div');
+            card.className = 'part-card';
+            card.innerHTML = `
+    <img src="${part.image}" alt="${part.name}" />
+    <h3>${part.name}</h3>
+    <p>Price: ₹${part.price}</p>
+  `;
+            return card;
+        }
+
+        function renderPartsMarquee() {
+            const itemsPerRow = 5;
+            const rows = Math.ceil(carParts.length / itemsPerRow);
+
+            for (let i = 0; i < rows; i++) {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'parts-row';
+                if (i % 2 !== 0) rowDiv.classList.add('reverse');
+
+                const slice = carParts.slice(i * itemsPerRow, (i + 1) * itemsPerRow);
+                slice.forEach(part => {
+                    rowDiv.appendChild(createPartCard(part));
+                });
+
+                partsContainer.appendChild(rowDiv);
+            }
+        }
+
+        renderPartsMarquee();
+        // Render Brand Logos
+        const brandMarquee = document.getElementById("brandMarquee");
+        brands.forEach(link => {
+            const img = document.createElement("img");
+            img.src = link;
+            img.alt = "Brand";
+            brandMarquee.appendChild(img).animate([
+                { transform: 'translateX(100%)' },
+                { transform: 'translateX(-100%)' }
+            ], {
+                duration: 2000,
+                iterations: Infinity
+            });
+        });
+    </script>
+</body>
+
+</html>
