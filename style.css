@@ -59,10 +59,9 @@ body {
 h2 {
   font-weight: 800;
   font-size: 3rem;
-  color: aqua;
+  color: rgb(10, 206, 236);
   text-align: center;
   margin: 20px 0;
-  color: #1a1a1a;
 }
 
 .show-more-btn {
@@ -101,6 +100,23 @@ img[alt=""] {
 }
 
 /*car parts marquee */
+.part-card h3 {
+  color: #ff4d30;
+  font-size: 1.2rem;
+  font-weight: 900;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 0 #000, 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+.part-card p {
+  color: #2ecc71; /* Bright green price */
+  font-size: 1rem;
+  font-weight: 800;
+  text-shadow: 1px 1px 0 #000, 2px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
 .car-parts-marquees {
   display: flex;
   flex-direction: column;
