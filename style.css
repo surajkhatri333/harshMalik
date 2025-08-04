@@ -106,13 +106,13 @@ img[alt=""] {
   flex-direction: column;
   gap: 30px;
   overflow: hidden;
-  margin: 40px 0;
+  margin: 20px 0;
   padding: 10px;
 }
 
 .parts-row {
   display: flex;
-  gap: 30px;
+  gap: 20px;
   white-space: nowrap;
   animation: scroll-left 40s linear infinite;
 }
@@ -213,4 +213,97 @@ footer {
 footer a {
   color: #ffa500;
   text-decoration: none;
+}
+
+
+/* Responsive: Tablet and Below */
+@media (max-width: 1024px) {
+  .parts-row {
+    flex-wrap: nowrap;
+    gap: 20px;
+  }
+
+  .part-card {
+    min-width: 160px;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .brands h2,
+  h2 {
+    font-size: 2rem;
+  }
+
+  .marquee img {
+    width: 80px;
+  }
+}
+
+/* Responsive: Mobile Devices */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 300px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    padding: 0 10px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .part-card {
+    min-width: 140px;
+    padding: 8px;
+  }
+
+  .part-card img {
+    height: 100px;
+  }
+
+  .show-more-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .marquee img {
+    width: 70px;
+  }
+}
+
+/* Responsive: Extra Small Devices */
+@media (max-width: 480px) {
+  .hero-section {
+    height: 250px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .part-card {
+    min-width: 120px;
+  }
+
+  .brands h2,
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .show-more-btn {
+    width: 90%;
+    margin: 1.5rem auto;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+
+  .marquee img {
+    width: 60px;
+  }
 }
